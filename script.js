@@ -71,6 +71,9 @@ function runCycle() {
     // Устанавливаем элемент как выбранный
     selectedElement.classList.add("selected");
 
+    // Прокрутка к выбранному элементу
+    selectedElement.scrollIntoView({ behavior: "smooth", block: "center" });
+
     // Удаляем выбранный элемент из массива оставшихся
     remainingItems.splice(randomIndex, 1);
 
