@@ -1,0 +1,153 @@
+:root{
+   --white: #E6DDFF;
+   --main-dark: #2b2d42;
+   --light-red: #ef233c;
+   --dark-red: #d80032;
+   --middle: #a499b3;
+   --yellow:#DDFF0A;
+   --purple: #714BDC;
+   --dark-purple: #2F1B68;
+   --dull:#E5D8FF80 50%;
+}
+@font-face {
+ font-family: "Nunito";
+ src: url(./fonts/Nunito-VariableFont_wght.ttf);
+}
+
+* {
+ padding: 0;
+ margin: 0;
+ border: 0;
+}
+
+html,
+body {
+ width: 100%;
+ height: 100%;
+ background: var(--main-dark);
+}
+h1{
+   color: var(--middle);
+   text-transform: uppercase;
+   color: var(--yellow);
+   font-size: 3em;
+   font-weight: 400;
+}
+body {
+ position: relative;
+ font-size: 32px;
+ font-family: "Nunito";
+ 
+ -webkit-user-select: none; /* Safari */
+ -ms-user-select: none; /* IE 10 and IE 11 */
+ user-select: none; /* Standard syntax */
+}
+.field {
+ position: absolute;
+ width: 80%;
+ left: 50%;
+ top: 50%;
+ transform: translate(-50%, -50%);
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: space-between;
+ height: 70vh;
+}
+#content {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(120px, 250px)); /* Адаптивные столбцы */
+   gap: 10px; /* Отступы между элементами */
+   max-width: 100%; /* Ограничиваем ширину */
+   height: 70vh; /* Устанавливаем высоту для скроллинга */
+   overflow-y: auto; /* Вертикальная прокрутка, если блоков много */
+   padding: 10px; /* Внутренние отступы */
+   box-sizing: border-box; /* Учитываем padding в размерах */ 
+   font-weight: 500;
+}
+.item {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   background-color: #f9f9f9;
+   text-align: center;
+   font-size: 1em;
+   transition: background-color 0.3s, transform 0.3s;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+   user-select: none;
+}
+
+.container-btn
+{
+   display: flex;
+   flex-direction: column;
+   gap:10px;
+   margin-top: 10px;
+   min-height: 135px;
+}
+.btn {
+   font-size: 1em;
+   display: block;
+   background: var(--purple);
+   border-radius: 5px;
+   padding: 10px 15px;
+   text-align: center;
+   transition: 0.2s;
+   color: var(--yellow);
+   cursor: pointer;
+   transition-duration: 0.3s;
+   text-transform: uppercase;
+}
+.btn:hover{
+   box-sizing: border-box;
+   background: var(--yellow);
+   color: var(--purple);
+   transition: 0.3s;
+}
+#rebootBtn {
+ display: none;
+}
+
+@keyframes shine {
+   0% {left: -100px}
+   20% {left: 100%}
+   100% {left: 100%}
+}
+@media (max-height:870px) {
+   body{
+     font-size: 20px;
+   }
+  }
+@media (max-width:660px) {
+ body{
+   font-size: 20px;
+ }
+ .field{
+   height: 90vh;
+ }
+}
+@media (max-width:385px) {
+ body{
+   font-size: 15px;
+ }
+}
+
+ 
+ .item.highlighted {
+   background-color: #ffff99;
+   transform: scale(1.05);
+ }
+ 
+ .item.selected {
+   background-color: var(--light-red);
+   color: var(--white);
+   font-weight: bold;
+ }
+ 
+ .item.crossed-out {
+   text-decoration: line-through;
+   background-color: var(--main-dark);
+   color: var(--light-red);
+ }
