@@ -43,8 +43,9 @@ function runCycle() {
    // Помечаем оставшиеся как перечеркнутые
    document.querySelectorAll(".item").forEach((item) => {
       if (!remainingItems.includes(item.dataset.id)) {
-      item.classList.add("crossed-out");
+         item.classList.add("crossed-out");
       }
+      item.classList.remove("selected");
    });
 
   // Анимация подсветки случайных блоков

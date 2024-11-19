@@ -31,7 +31,7 @@ h1{
    text-transform: uppercase;
    color: var(--yellow);
    font-size: 3em;
-   font-weight: 400;
+   font-weight: bold;
 }
 body {
  position: relative;
@@ -83,6 +83,7 @@ body {
    user-select: none;
    min-height: 40px;
    font-weight: bold;
+   overflow: hidden;
 }
 
 .container-btn
@@ -200,10 +201,10 @@ body {
  }
 
 
-/* .selected:before {
+.selected:before {
    content: '';
    position: absolute;
-   width: 100px;
+   width: 100%; /* Ширина блика больше ширины элемента */
    height: 100%;
    background-image: linear-gradient(
        120deg,
@@ -212,12 +213,13 @@ body {
        rgba(255,255,255, 0) 70%
    );
    top: 0;
-   left: -100px;
-   animation: shine 3s infinite linear; 
-} */
+   left: -100%; /* Начало за границей элемента */
+   animation: shine 3s infinite linear;
+   animation-delay: 0.5s;
+}
 
 @keyframes shine {
-   0% {left: -100px}
-   20% {left: 100%}
-   100% {left: 100%}
-}
+   0% { left: -100%; }   /* Блик начинает за пределами элемента слева */
+   50% { left: 100%; }   /* Блик проходит через элемент */
+   100% { left: 100%; }  /* Конец за пределами элемента справа */
+ }
